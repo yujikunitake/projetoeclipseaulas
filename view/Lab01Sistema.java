@@ -22,8 +22,10 @@ public class Lab01Sistema{
                     execCadastramento();
                     break;
                 case 2:
+                    execSaque();
                     break;
                 case 3:
+                    execDeposito();
                     break;
                 default:
                     break;
@@ -44,14 +46,72 @@ public class Lab01Sistema{
         String nome = leia.next();
 
         System.out.println("Digite o saldo da conta: ");
-        double saldo = leia.nextInt();
+        double saldo = leia.nextDouble();
 
         System.out.println("Confirme o cadastramento(S/N). ");
-        String cad = leia.next();
+        String conf_cad = leia.next();
 
-        if (cad.equalsIgnoreCase("s")){
+        if (conf_cad.equalsIgnoreCase("s")){
             System.out.println("Cadastro realizado com sucesso!");
         }
-
+        else if (conf_cad.equalsIgnoreCase("n")){
+            System.out.println("Cadastro cancelado com sucesso!");
+        }
+        else {
+            System.out.println("Opção inválida!");
+        }
     }
+
+    public static void execSaque(){
+        Scanner leia = new Scanner(System.in);
+
+        System.out.println("Digite o número da agência: ");
+        int agencia = leia.nextInt();
+
+        System.out.println("Digite o número da conta: ");
+        int conta = leia.nextInt();
+
+        System.out.println("Digite o valor do saque: ");
+        double saque = leia.nextDouble();
+
+        System.out.println("Confirme o saque(S/N): ");
+        String conf_saque = leia.next();
+
+        if (conf_saque.equalsIgnoreCase("s")){
+            System.out.println("Saque realizado com sucesso!");
+        }
+        else if (conf_saque.equalsIgnoreCase("n")){
+            System.out.println("Saque cancelado com sucesso!");
+        }
+        else {
+            System.out.println("Opção inválida!");
+        }
+    }
+
+    public static void execDeposito(){
+        Scanner leia = new Scanner(System.in);
+
+        System.out.println("Digite o número da agência: ");
+        int agencia = leia.nextInt();
+
+        System.out.println("Digite o número da conta: ");
+        int conta = leia.nextInt();
+
+        System.out.println("Digite o valor do depósito: ");
+        double deposito = leia.nextDouble();
+
+        System.out.println("Confirme o depósito(S/N): ");
+        String conf_dep = leia.next();
+
+        if (conf_dep.equalsIgnoreCase("s")){
+            System.out.println("Depósito realizado com sucesso!");
+        }
+        else if (conf_dep.equalsIgnoreCase("n")){
+            System.out.println("Depósito cancelado com sucesso!");
+        }
+        else {
+            System.out.println("Opção inválida!");
+        }
+    }
+
 }
