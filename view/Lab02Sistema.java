@@ -1,9 +1,10 @@
 package view;
 
 import java.util.Scanner;
+
 import model.Lab02ContaCorrente;
 
-public class Lab02Sistema{
+public class Lab02Sistema {
     Lab02ContaCorrente minhaConta = new Lab02ContaCorrente();
 
     public static void main(String[] args) {
@@ -12,7 +13,7 @@ public class Lab02Sistema{
 
     private void executarLab() {
         int opcao = 0;
-        while (opcao != 9){
+        while (opcao != 9) {
             Scanner leia = new Scanner(System.in);
 
             System.out.println("1 - Cadastramento");
@@ -24,7 +25,7 @@ public class Lab02Sistema{
 
             opcao = leia.nextInt();
 
-            switch (opcao){
+            switch (opcao) {
                 case 1:
                     execCadastramento();
                     break;
@@ -43,7 +44,7 @@ public class Lab02Sistema{
         }
     }
 
-    public void execCadastramento(){
+    public void execCadastramento() {
         Scanner leia = new Scanner(System.in);
 
         System.out.println("Digite o número da agência: ");
@@ -61,22 +62,20 @@ public class Lab02Sistema{
         System.out.println("Confirme o cadastramento(S/N). ");
         String conf_cad = leia.next();
 
-        if (conf_cad.equalsIgnoreCase("s")){
+        if (conf_cad.equalsIgnoreCase("s")) {
             this.minhaConta.setNumAge(agencia);
             this.minhaConta.setNumConta(conta);
             this.minhaConta.setNome(nome);
             this.minhaConta.setSaldo(saldo);
             System.out.println("Cadastro realizado com sucesso!");
-        }
-        else if (conf_cad.equalsIgnoreCase("n")){
+        } else if (conf_cad.equalsIgnoreCase("n")) {
             System.out.println("Cadastro cancelado com sucesso!");
-        }
-        else {
+        } else {
             System.out.println("Opção inválida!");
         }
     }
 
-    public void execSaque(){
+    public void execSaque() {
         Scanner leia = new Scanner(System.in);
 
         System.out.println("Digite o número da agência: ");
@@ -91,24 +90,21 @@ public class Lab02Sistema{
         System.out.println("Confirme o saque(S/N): ");
         String conf_saque = leia.next();
 
-        if (conf_saque.equalsIgnoreCase("s")){
+        if (conf_saque.equalsIgnoreCase("s")) {
             int podeSacar = this.minhaConta.sacar(saque);
-            if (podeSacar == 1){
+            if (podeSacar == 1) {
                 System.out.println("Saque realizado com sucesso!");
-            }
-            else {
+            } else {
                 System.out.println("Saldo insuficiente.");
             }
-        }
-        else if (conf_saque.equalsIgnoreCase("n")){
+        } else if (conf_saque.equalsIgnoreCase("n")) {
             System.out.println("Saque cancelado com sucesso!");
-        }
-        else {
+        } else {
             System.out.println("Opção inválida!");
         }
     }
 
-    public void execDeposito(){
+    public void execDeposito() {
         Scanner leia = new Scanner(System.in);
 
         System.out.println("Digite o número da agência: ");
@@ -123,19 +119,17 @@ public class Lab02Sistema{
         System.out.println("Confirme o depósito(S/N): ");
         String conf_dep = leia.next();
 
-        if (conf_dep.equalsIgnoreCase("s")){
+        if (conf_dep.equalsIgnoreCase("s")) {
             this.minhaConta.depositar(deposito);
             System.out.println("Depósito realizado com sucesso!");
-        }
-        else if (conf_dep.equalsIgnoreCase("n")){
+        } else if (conf_dep.equalsIgnoreCase("n")) {
             System.out.println("Depósito cancelado com sucesso!");
-        }
-        else {
+        } else {
             System.out.println("Opção inválida!");
         }
     }
 
-    public void execConsulta(){
+    public void execConsulta() {
         this.minhaConta.imprimir();
     }
 
